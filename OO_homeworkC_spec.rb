@@ -116,4 +116,26 @@ class TestLibrary < MiniTest::Test
                  date: "1 Feb 2017"
                })
   end
+
+  def test_get_book_rental_info__notfound
+    miskatonic = Library.new([
+              {
+                title: "the jungle book",
+                rental_details: {
+                  student_name: "Beth",
+                  date: "1 Feb 2017"
+                }
+              },
+              {
+                title: "the second jungle book",
+                rental_details: 
+                  {
+                    student_name: "Beth",
+                    date: "15 Feb 2017"
+                  }
+               }
+       ]
+     )
+    assert_equal(miskatonic.get_book_rental_info("Perdido Street Station"),"book not found")
+  end
 end
