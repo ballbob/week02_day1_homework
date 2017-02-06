@@ -25,4 +25,14 @@ attr_accessor :book
     @books.push(addition)
   end
 
+  def change_rental_details(title,student,date)
+    for book in @books
+      if book[:title] == title
+        book[:rental_details][:student_name] = student
+        book[:rental_details][:date] = date
+      end
+    end
+      return "book not found"
+  end
+
 end

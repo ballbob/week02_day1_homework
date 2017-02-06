@@ -176,6 +176,32 @@ class TestLibrary < MiniTest::Test
       }
     }
   )
-  
+  end
+
+  def test_change_rental_details
+   miskatonic = Library.new([
+             {
+               title: "the jungle book",
+               rental_details: {
+                 student_name: "Beth",
+                 date: "1 Feb 2017"
+               }
+             },
+             {
+               title: "the second jungle book",
+               rental_details: 
+                 {
+                   student_name: "Beth",
+                   date: "15 Feb 2017"
+                 }
+              }
+      ]
+    )
+   miskatonic.change_rental_details("the jungle book", "Mohammad", "18 March 2017")
+
+   assert_equal(miskatonic.get_book_rental_info("the jungle book"), {
+                   student_name: "Mohammad",
+                   date: "18 March 2017"
+                 })
   end
 end
