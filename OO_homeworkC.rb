@@ -12,5 +12,8 @@ attr_accessor :book
    for book in @books
     return book if book[:title] == title
   end
+  return "book not found"
   end
+
+  
 end
