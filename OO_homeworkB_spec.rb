@@ -40,4 +40,10 @@ class TestHomework < MiniTest::Test
     assert_equal("no",wick_academy.check_for_player("Solange Knowles"))
   end
 
+  def test_did_team_win__yes
+    wick_academy = Team.new("Wick Academy",["Jeordy","Chordy","Lord Thurso"],"Chiel",0)
+    wick_academy.did_team_win_match("yes")
+    assert_equal(1,wick_academy.points)
+  end
+
 end

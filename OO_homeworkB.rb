@@ -4,6 +4,7 @@ class Team
     @teamname = teamname
     @players = players
     @coach = coach
+    @points = points
   end
 
   def add_player(newplayer)
@@ -17,5 +18,9 @@ class Team
     return "no"
   end
 
+  def did_team_win_match(answer)
+  if answer == "no" then return "no" end
+  if answer == "yes" then (@points += 1) end
+  end
 
 end
