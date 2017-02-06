@@ -30,4 +30,9 @@ class TestHomework < MiniTest::Test
     assert_equal(wick_academy.players.last,"Biy")
   end
 
+  def test_check_for_player__pos
+    wick_academy = Team.new("Wick Academy",["Jeordy","Chordy","Lord Thurso"],"Chiel")
+    assert_equal("yes",wick_academy.check_for_player("Jeordy"))
+  end
+
 end

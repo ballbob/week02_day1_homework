@@ -10,5 +10,12 @@ class Team
     @players.push(newplayer)
   end
 
+  def check_for_player(name)
+    for player in @players
+      return "yes" if player == name
+    end
+    return "no"
+  end
+
 
 end
