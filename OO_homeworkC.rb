@@ -10,8 +10,7 @@ attr_accessor :book
 
   def get_book_info(title)
    for book in @books
-    return book if book[:title] == title
-  end
+      return book if book[:title] == title end
   return "book not found"
   end
 
@@ -20,6 +19,10 @@ attr_accessor :book
       return book[:rental_details] if book[:title] == title
     end
     return "book not found"
+  end
+
+  def add_new_book(addition)
+    @books.push(addition)
   end
 
 end
