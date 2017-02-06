@@ -178,7 +178,7 @@ class TestLibrary < MiniTest::Test
   )
   end
 
-  def test_change_rental_details
+  def test_change_rental_details__found
    miskatonic = Library.new([
              {
                title: "the jungle book",
@@ -203,5 +203,29 @@ class TestLibrary < MiniTest::Test
                    student_name: "Mohammad",
                    date: "18 March 2017"
                  })
+  end
+
+  def test_change_rental_details__notfound
+   miskatonic = Library.new([
+             {
+               title: "the jungle book",
+               rental_details: {
+                 student_name: "Beth",
+                 date: "1 Feb 2017"
+               }
+             },
+             {
+               title: "the second jungle book",
+               rental_details: 
+                 {
+                   student_name: "Beth",
+                   date: "15 Feb 2017"
+                 }
+              }
+      ]
+    )
+   miskatonic.change_rental_details("Thinking Fast and Slow", "Mohammad", "18 March 2017")
+
+   assert_equal(miskatonic.get_book_rental_info("thinking fast and slow"), "book not found")
   end
 end
