@@ -40,6 +40,37 @@ class TestLibrary < MiniTest::Test
         ],miskatonic.list_all_books)
   end
 
+  def test_get_book_info__found
+      miskatonic = Library.new([
+            {
+              title: "the jungle book",
+              rental_details: {
+                student_name: "Beth",
+                date: "1 Feb 2017"
+              }
+            },
+            {
+              title: "the second jungle book",
+              rental_details: 
+                {
+                  student_name: "Beth",
+                  date: "15 Feb 2017"
+                }
+            }
+          ])
+
+      assert_equal(miskatonic.get_book_info("the second jungle book"),{title: "the second jungle book",
+              rental_details: 
+                {
+                  student_name: "Beth",
+                  date: "15 Feb 2017"
+                }
+            }
+            )
+  end
+
+
+
 
 
 end
