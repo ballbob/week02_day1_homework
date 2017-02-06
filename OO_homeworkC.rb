@@ -15,5 +15,11 @@ attr_accessor :book
   return "book not found"
   end
 
-  
+  def get_book_rental_info(title)
+    for book in @books
+      return book[:rental_details] if book[:title] == title
+    end
+    return "book not found"
+  end
+
 end
