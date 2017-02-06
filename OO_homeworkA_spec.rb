@@ -30,8 +30,7 @@ class TestOOHomework < MiniTest::Test
 
   def test_favorite_language
     bob = Student.new("Bob",10)
-    assert_equal("I like R.",bob.favorite_language)
+    assert_equal("I like R.",bob.favorite_language(R))
   end
-
 
 end

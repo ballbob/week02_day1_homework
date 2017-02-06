@@ -24,8 +24,8 @@ class Student
     return "Yes."
   end
 
-  def favorite_language
-    return "I like R."
+  def favorite_language(language)
+    return "I like #{language}."
   end
 
 end
